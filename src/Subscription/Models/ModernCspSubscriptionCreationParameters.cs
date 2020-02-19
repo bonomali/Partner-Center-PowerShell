@@ -8,10 +8,11 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription.Models
+namespace Microsoft.Azure.Management.Subscription.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Linq;
 
     /// <summary>
     /// The parameters required to create a new CSP subscription.
@@ -38,14 +39,11 @@ namespace Microsoft.Azure.Management.Profiles.Subscription.Models
         /// subscription.  Use 001 for Microsoft Azure Plan and 002 for
         /// Microsoft Azure Plan for DevTest.</param>
         /// <param name="resellerId">Reseller ID, basically MPN Id.</param>
-        /// <param name="serviceProviderId">Service provider ID, basically MPN
-        /// Id.</param>
-        public ModernCspSubscriptionCreationParameters(string displayName, string skuId, string resellerId = default(string), string serviceProviderId = default(string))
+        public ModernCspSubscriptionCreationParameters(string displayName, string skuId, string resellerId = default(string))
         {
             DisplayName = displayName;
             SkuId = skuId;
             ResellerId = resellerId;
-            ServiceProviderId = serviceProviderId;
             CustomInit();
         }
 
@@ -74,12 +72,6 @@ namespace Microsoft.Azure.Management.Profiles.Subscription.Models
         /// </summary>
         [JsonProperty(PropertyName = "resellerId")]
         public string ResellerId { get; set; }
-
-        /// <summary>
-        /// Gets or sets service provider ID, basically MPN Id.
-        /// </summary>
-        [JsonProperty(PropertyName = "serviceProviderId")]
-        public string ServiceProviderId { get; set; }
 
         /// <summary>
         /// Validate the object.

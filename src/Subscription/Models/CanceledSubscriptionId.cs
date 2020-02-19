@@ -8,9 +8,10 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription.Models
+namespace Microsoft.Azure.Management.Subscription.Models
 {
     using Newtonsoft.Json;
+    using System.Linq;
 
     /// <summary>
     /// The ID of the canceled subscription
@@ -31,7 +32,7 @@ namespace Microsoft.Azure.Management.Profiles.Subscription.Models
         /// <param name="value">The ID of the canceled subscription</param>
         public CanceledSubscriptionId(string value = default(string))
         {
-            SubscriptionId = value;
+            Value = value;
             CustomInit();
         }
 
@@ -43,8 +44,8 @@ namespace Microsoft.Azure.Management.Profiles.Subscription.Models
         /// <summary>
         /// Gets the ID of the canceled subscription
         /// </summary>
-        [JsonProperty(PropertyName = "subscriptionId")]
-        public string SubscriptionId { get; private set; }
+        [JsonProperty(PropertyName = "value")]
+        public string Value { get; private set; }
 
     }
 }

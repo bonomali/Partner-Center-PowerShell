@@ -8,11 +8,13 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription
+namespace Microsoft.Azure.Management.Subscription
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
+    using Models;
     using System.Threading;
     using System.Threading.Tasks;
-    using Models;
 
     /// <summary>
     /// Extension methods for SubscriptionOperationOperations.

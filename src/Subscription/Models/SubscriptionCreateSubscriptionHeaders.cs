@@ -8,34 +8,35 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription.Models
+namespace Microsoft.Azure.Management.Subscription.Models
 {
     using Newtonsoft.Json;
+    using System.Linq;
 
     /// <summary>
-    /// Defines headers for CreateCspSubscription operation.
+    /// Defines headers for CreateSubscription operation.
     /// </summary>
-    public partial class SubscriptionFactoryCreateCspSubscriptionHeaders
+    public partial class SubscriptionCreateSubscriptionHeaders
     {
         /// <summary>
         /// Initializes a new instance of the
-        /// SubscriptionFactoryCreateCspSubscriptionHeaders class.
+        /// SubscriptionCreateSubscriptionHeaders class.
         /// </summary>
-        public SubscriptionFactoryCreateCspSubscriptionHeaders()
+        public SubscriptionCreateSubscriptionHeaders()
         {
             CustomInit();
         }
 
         /// <summary>
         /// Initializes a new instance of the
-        /// SubscriptionFactoryCreateCspSubscriptionHeaders class.
+        /// SubscriptionCreateSubscriptionHeaders class.
         /// </summary>
         /// <param name="location">GET this URL to retrieve the status of the
         /// asynchronous operation.</param>
         /// <param name="retryAfter">The amount of delay to use while the
         /// status of the operation is checked. The value is expressed in
         /// seconds.</param>
-        public SubscriptionFactoryCreateCspSubscriptionHeaders(string location = default(string), int? retryAfter = default(int?))
+        public SubscriptionCreateSubscriptionHeaders(string location = default(string), int? retryAfter = default(int?))
         {
             Location = location;
             RetryAfter = retryAfter;

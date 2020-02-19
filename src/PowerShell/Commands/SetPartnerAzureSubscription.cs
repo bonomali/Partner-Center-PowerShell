@@ -5,8 +5,8 @@ namespace Microsoft.Store.PartnerCenter.PowerShell.Commands
 {
     using System.Management.Automation;
     using System.Text.RegularExpressions;
-    using Azure.Management.Profiles.Subscription;
-    using Azure.Management.Profiles.Subscription.Models;
+    using Azure.Management.Subscription;
+    using Azure.Management.Subscription.Models;
     using Models.Authentication;
 
     [Cmdlet(VerbsCommon.Set, "PartnerAzureSubscription")]
@@ -44,7 +44,7 @@ namespace Microsoft.Store.PartnerCenter.PowerShell.Commands
                     new[] { $"{PartnerSession.Instance.Context.Environment.AzureEndpoint}//user_impersonation" },
                     CustomerId).ConfigureAwait(false);
 
-                RenamedSubscriptionId value = client.Subscriptions.RenameAsync(
+                RenamedSubscriptionId value = client.Subscription.RenameAsync(
                     SubscriptionId,
                     new SubscriptionName
                     {

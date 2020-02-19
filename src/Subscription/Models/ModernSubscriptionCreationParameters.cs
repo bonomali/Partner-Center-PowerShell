@@ -8,11 +8,10 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription.Models
+namespace Microsoft.Azure.Management.Subscription.Models
 {
-    using System.Collections.Generic;
-    using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Linq;
 
     /// <summary>
     /// The parameters required to create a new subscription.
@@ -34,8 +33,6 @@ namespace Microsoft.Azure.Management.Profiles.Subscription.Models
         /// </summary>
         /// <param name="displayName">The friendly name of the
         /// subscription.</param>
-        /// <param name="billingProfileId">The ARM ID of the billing profile
-        /// for which you want to create the subscription.</param>
         /// <param name="skuId">The SKU ID of the Azure plan. Azure plan
         /// determines the pricing and service-level agreement of the
         /// subscription.  Use 001 for Microsoft Azure Plan and 002 for
@@ -47,17 +44,13 @@ namespace Microsoft.Azure.Management.Profiles.Subscription.Models
         /// the create subscription operation</param>
         /// <param name="managementGroupId">The identifier of the management
         /// group to which this subscription will be associated.</param>
-        /// <param name="additionalParameters">Additional, untyped parameters
-        /// to support custom subscription creation scenarios.</param>
-        public ModernSubscriptionCreationParameters(string displayName, string billingProfileId, string skuId, string costCenter = default(string), AdPrincipal owner = default(AdPrincipal), string managementGroupId = default(string), IDictionary<string, object> additionalParameters = default(IDictionary<string, object>))
+        public ModernSubscriptionCreationParameters(string displayName = default(string), string skuId = default(string), string costCenter = default(string), AdPrincipal owner = default(AdPrincipal), string managementGroupId = default(string))
         {
             DisplayName = displayName;
-            BillingProfileId = billingProfileId;
             SkuId = skuId;
             CostCenter = costCenter;
             Owner = owner;
             ManagementGroupId = managementGroupId;
-            AdditionalParameters = additionalParameters;
             CustomInit();
         }
 
@@ -71,13 +64,6 @@ namespace Microsoft.Azure.Management.Profiles.Subscription.Models
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the ARM ID of the billing profile for which you want
-        /// to create the subscription.
-        /// </summary>
-        [JsonProperty(PropertyName = "billingProfileId")]
-        public string BillingProfileId { get; set; }
 
         /// <summary>
         /// Gets or sets the SKU ID of the Azure plan. Azure plan determines
@@ -111,32 +97,13 @@ namespace Microsoft.Azure.Management.Profiles.Subscription.Models
         public string ManagementGroupId { get; set; }
 
         /// <summary>
-        /// Gets or sets additional, untyped parameters to support custom
-        /// subscription creation scenarios.
-        /// </summary>
-        [JsonProperty(PropertyName = "additionalParameters")]
-        public IDictionary<string, object> AdditionalParameters { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
+        /// <exception cref="Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
         public virtual void Validate()
         {
-            if (DisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DisplayName");
-            }
-            if (BillingProfileId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "BillingProfileId");
-            }
-            if (SkuId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "SkuId");
-            }
             if (Owner != null)
             {
                 Owner.Validate();

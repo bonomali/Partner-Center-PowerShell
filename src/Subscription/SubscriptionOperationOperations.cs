@@ -8,18 +8,19 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription
+namespace Microsoft.Azure.Management.Subscription
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
+    using Models;
+    using Newtonsoft.Json;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Rest;
-    using Microsoft.Rest.Azure;
-    using Models;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// SubscriptionOperationOperations operations.
@@ -83,7 +84,10 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "operationId");
             }
-            string apiVersion = "2018-11-01-preview";
+            if (Client.ApiVersion == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.ApiVersion");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -92,7 +96,6 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("operationId", operationId);
-                tracingParameters.Add("apiVersion", apiVersion);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
@@ -101,9 +104,9 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "providers/Microsoft.Subscription/subscriptionOperations/{operationId}").ToString();
             _url = _url.Replace("{operationId}", System.Uri.EscapeDataString(operationId));
             List<string> _queryParameters = new List<string>();
-            if (apiVersion != null)
+            if (Client.ApiVersion != null)
             {
-                _queryParameters.Add(string.Format("api-version={0}", System.Uri.EscapeDataString(apiVersion)));
+                _queryParameters.Add(string.Format("api-version={0}", System.Uri.EscapeDataString(Client.ApiVersion)));
             }
             if (_queryParameters.Count > 0)
             {

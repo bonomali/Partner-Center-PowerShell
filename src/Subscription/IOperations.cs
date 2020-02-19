@@ -8,13 +8,15 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription
+namespace Microsoft.Azure.Management.Subscription
 {
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
+    using Models;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Rest.Azure;
-    using Models;
 
     /// <summary>
     /// Operations operations.

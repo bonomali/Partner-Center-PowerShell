@@ -8,10 +8,11 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription.Models
+namespace Microsoft.Azure.Management.Subscription.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Linq;
 
     /// <summary>
     /// Active Directory Principal who’ll get owner access on the new

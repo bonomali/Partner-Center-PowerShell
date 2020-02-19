@@ -8,14 +8,18 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription
+namespace Microsoft.Azure.Management.Subscription
 {
-    using System.Collections.Generic;
-    using System.Net.Http;
     using Microsoft.Rest;
     using Microsoft.Rest.Azure;
     using Microsoft.Rest.Serialization;
+    using Models;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
 
     /// <summary>
     /// The subscription client
@@ -43,6 +47,12 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
         public ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
+        /// Version of the API to be used with the client request. Current version is
+        /// 2020-01-01
+        /// </summary>
+        public string ApiVersion { get; private set; }
+
+        /// <summary>
         /// The preferred language for the response.
         /// </summary>
         public string AcceptLanguage { get; set; }
@@ -61,9 +71,9 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
         public bool? GenerateClientRequestId { get; set; }
 
         /// <summary>
-        /// Gets the ISubscriptionsOperations.
+        /// Gets the ISubscriptionOperations.
         /// </summary>
-        public virtual ISubscriptionsOperations Subscriptions { get; private set; }
+        public virtual ISubscriptionOperations Subscription { get; private set; }
 
         /// <summary>
         /// Gets the ISubscriptionOperationOperations.
@@ -71,24 +81,9 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
         public virtual ISubscriptionOperationOperations SubscriptionOperation { get; private set; }
 
         /// <summary>
-        /// Gets the ISubscriptionFactoryOperations.
-        /// </summary>
-        public virtual ISubscriptionFactoryOperations SubscriptionFactory { get; private set; }
-
-        /// <summary>
-        /// Gets the ISubscriptionOperations.
-        /// </summary>
-        public virtual ISubscriptionOperations SubscriptionOperations { get; private set; }
-
-        /// <summary>
         /// Gets the IOperations.
         /// </summary>
         public virtual IOperations Operations { get; private set; }
-
-        /// <summary>
-        /// Gets the ITenantsOperations.
-        /// </summary>
-        public virtual ITenantsOperations Tenants { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the SubscriptionClient class.
@@ -331,13 +326,11 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
         /// </summary>
         private void Initialize()
         {
-            Subscriptions = new SubscriptionsOperations(this);
+            Subscription = new SubscriptionOperations(this);
             SubscriptionOperation = new SubscriptionOperationOperations(this);
-            SubscriptionFactory = new SubscriptionFactoryOperations(this);
-            SubscriptionOperations = new SubscriptionOperations(this);
             Operations = new Operations(this);
-            Tenants = new TenantsOperations(this);
             BaseUri = new System.Uri("https://management.azure.com");
+            ApiVersion = "2018-11-01-preview";
             AcceptLanguage = "en-US";
             LongRunningOperationRetryTimeout = 30;
             GenerateClientRequestId = true;

@@ -10,7 +10,7 @@ schema: 2.0.0
 # New-PartnerAzureSubscription
 
 ## SYNOPSIS
-Creates a new Azure subscription for Microsoft Partner Agreement billing account.
+Creates a new Azure subscription under an Azure Plan for the specified customer.
 
 ## SYNTAX
 
@@ -20,16 +20,17 @@ New-PartnerAzureSubscription -BillingAccountName <String> -CustomerId <String> -
 ```
 
 ## DESCRIPTION
-Creates a new Azure subscription for Microsoft Partner Agreement billing account.
+Creates a new Azure subscription under an Azure Plan for the specified customer.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> New-PartnerAzureSubscription -BillingAccountName '99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx' -CustomerId 'cb20b9f1-d3e8-4dad-9d4f-5e4c92baed92' -DisplayName 'Microsoft Azure'
+PS C:\> $account = Get-PartnerAzureBillingAccount | ? {$_.AgreementType -eq 'MicrosoftCustomerAgreement'}
+PS C:\> New-PartnerAzureSubscription -BillingAccountName $account.Name -DisplayName 'Microsoft Azure'
 ```
 
-Creates a new Azure subscription for Microsoft Partner Agreement billing account.
+Creates a new Azure subscription under an Azure Plan for the specified customer.
 
 ## PARAMETERS
 

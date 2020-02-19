@@ -5,8 +5,8 @@ namespace Microsoft.Store.PartnerCenter.PowerShell.Commands
 {
     using System.Management.Automation;
     using System.Text.RegularExpressions;
-    using Azure.Management.Profiles.Subscription;
-    using Azure.Management.Profiles.Subscription.Models;
+    using Azure.Management.Subscription;
+    using Azure.Management.Subscription.Models;
     using Models.Authentication;
 
     [Cmdlet(VerbsCommon.New, "PartnerAzureSubscription")]
@@ -53,7 +53,7 @@ namespace Microsoft.Store.PartnerCenter.PowerShell.Commands
                     SkuId = "0001"
                 };
 
-                WriteObject(await client.SubscriptionFactory.CreateCspSubscriptionAsync(BillingAccountName, CustomerId, parameters, CancellationToken).ConfigureAwait(false));
+                WriteObject(await client.Subscription.CreateCspSubscriptionAsync(BillingAccountName, CustomerId, parameters, CancellationToken).ConfigureAwait(false));
             }, true);
         }
     }

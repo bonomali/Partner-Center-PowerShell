@@ -5,8 +5,8 @@ namespace Microsoft.Store.PartnerCenter.PowerShell.Commands
 {
     using System.Management.Automation;
     using System.Text.RegularExpressions;
-    using Azure.Management.Profiles.Subscription;
-    using Azure.Management.Profiles.Subscription.Models;
+    using Azure.Management.Subscription;
+    using Azure.Management.Subscription.Models;
     using Models.Authentication;
 
     [Cmdlet(VerbsLifecycle.Suspend, "PartnerAzureSubscription")]
@@ -38,7 +38,7 @@ namespace Microsoft.Store.PartnerCenter.PowerShell.Commands
                     new[] { $"{PartnerSession.Instance.Context.Environment.AzureEndpoint}//user_impersonation" },
                     CustomerId).ConfigureAwait(false);
 
-                CanceledSubscriptionId response = await client.Subscriptions.CancelAsync(
+                CanceledSubscriptionId response = await client.Subscription.CancelAsync(
                     SubscriptionId,
                     true,
                     CancellationToken).ConfigureAwait(false);

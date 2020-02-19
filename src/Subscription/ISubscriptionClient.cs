@@ -8,9 +8,11 @@
 // regenerated.
 // </auto-generated>
 
-namespace Microsoft.Azure.Management.Profiles.Subscription
+namespace Microsoft.Azure.Management.Subscription
 {
     using Microsoft.Rest;
+    using Microsoft.Rest.Azure;
+    using Models;
     using Newtonsoft.Json;
 
     /// <summary>
@@ -39,6 +41,12 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
         ServiceClientCredentials Credentials { get; }
 
         /// <summary>
+        /// Version of the API to be used with the client request. Current
+        /// version is 2020-01-01
+        /// </summary>
+        string ApiVersion { get; }
+
+        /// <summary>
         /// The preferred language for the response.
         /// </summary>
         string AcceptLanguage { get; set; }
@@ -58,9 +66,9 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
 
 
         /// <summary>
-        /// Gets the ISubscriptionsOperations.
+        /// Gets the ISubscriptionOperations.
         /// </summary>
-        ISubscriptionsOperations Subscriptions { get; }
+        ISubscriptionOperations Subscription { get; }
 
         /// <summary>
         /// Gets the ISubscriptionOperationOperations.
@@ -68,24 +76,9 @@ namespace Microsoft.Azure.Management.Profiles.Subscription
         ISubscriptionOperationOperations SubscriptionOperation { get; }
 
         /// <summary>
-        /// Gets the ISubscriptionFactoryOperations.
-        /// </summary>
-        ISubscriptionFactoryOperations SubscriptionFactory { get; }
-
-        /// <summary>
-        /// Gets the ISubscriptionOperations.
-        /// </summary>
-        ISubscriptionOperations SubscriptionOperations { get; }
-
-        /// <summary>
         /// Gets the IOperations.
         /// </summary>
         IOperations Operations { get; }
-
-        /// <summary>
-        /// Gets the ITenantsOperations.
-        /// </summary>
-        ITenantsOperations Tenants { get; }
 
     }
 }
